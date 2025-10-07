@@ -94,7 +94,7 @@
       <label for="luxury">奢华型（顶级体验）</label><br>
 
       <br>
-      <button type="button" onclick="getFormValues()">Submit</button>
+      <button type="button" onclick="jump()">Submit</button>
     </form>
     
   </main>
@@ -109,24 +109,9 @@
 <script>
 
 
-  function getFormValues() {
-     
+  function jump() {
     location.href = "result.html";
 
-    var form = document.getElementById('myForm');
-  
-  
-    var formData = new FormData(form);
-  
-  
-    for (var value of formData.values()) {
-  
-  
-      console.log(value);
-  
-  
-    }
-  
   
   }
   
