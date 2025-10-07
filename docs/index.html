@@ -94,7 +94,7 @@
       <label for="luxury">奢华型（顶级体验）</label><br>
 
       <br>
-      <button type="button" onclick="jump()">Submit</button>
+      <button type="button" onclick="handleFormSubmit(event)">Submit</button>
     </form>
     
   </main>
@@ -108,12 +108,104 @@
 
 <script>
 
-
-  function jump() {
-    location.href = "result.html";
-
   
+    // 显示加载状态
+  function showLoadingState() {
+      const loadingElement = document.createElement('div');
+      loadingElement.id = 'loading';
+      loadingElement.textContent = '加载中，请稍候...';
+      document.body.appendChild(loadingElement);
+  }
+
+  // 隐藏加载状态
+  function hideLoadingState() {
+      const loadingElement = document.getElementById('loading');
+      if (loadingElement) {
+          document.body.removeChild(loadingElement);
+      }
+  }
+
+  // 收集表单数据
+  function collectFormData() {
+      const form = document.getElementById('myForm');
+      const formData = new FormData(form);
+      const data = [];
+
+      for (let value of formData.values()) {
+         data.push(value);
+      }
+
+      return data;
+  }
+
+  // 验证表单数据
+  function validateFormData(formData) {
+      return true;
+  }
+
+  // 发送数据到后端
+  async function submitToBackend(formData) {
+      const response = await fetch('http://43173ef9.r5.cpolar.top/submit', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+          throw new Error('提交失败，请稍后重试！');
+      }
+
+      return response.json();
+  }
+
+  // 处理成功响应
+  async function handleSuccessResponse(response) {
+      alert('提交成功！推荐结果已生成，请查看：' + JSON.stringify(response));
+  }
+
+  // 处理错误
+  function handleError(error) {
+      console.error('发生错误：', error);
+      alert('提交失败，请检查网络或稍后重试！');
+  }
+
+
+
+   // 表单提交处理函数
+  async function handleFormSubmit(event) {
+      // 阻止表单默认提交行为
+      event.preventDefault();
+      
+      // 显示加载状态
+      showLoadingState();
+      
+      try {
+          // 收集表单数据
+          const formData = collectFormData();
+          
+          // 验证表单数据
+          if (!validateFormData(formData)) {
+              hideLoadingState();
+              return;
+          }
+          
+          // 发送POST请求到后端
+          const response = await submitToBackend(formData);
+          
+          // 处理成功响应
+          await handleSuccessResponse(response);
+          
+      } catch (error) {
+          // 处理错误
+          handleError(error);
+      } finally {
+          // 隐藏加载状态
+          hideLoadingState();
+      }
   }
   
-  
+
+
   </script>
