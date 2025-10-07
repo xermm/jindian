@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的网页</title>
+  <link rel="stylesheet" href="mystyle.css">
+
+</head>
+<body>
+  <header>
+    <h1>智能旅游目的地推荐问卷</h1>
+    <p>您好！请回答以下7个问题，我们将根据您的答案，从2w多个目的地中为您精准推荐最合适的旅行选择。</p>
+  </header>
+
+  <main>
+    <form id="myForm">
+      <h2>1. 群体选择（您属于哪一类旅行者？）</h2>
+      <input type="radio" id="student" name="group" value="11">
+      <label for="student">学生</label><br>
+      <input type="radio" id="young_professional" name="group" value="12">
+      <label for="young_professional">年轻白领 / 背包客</label><br>
+      <input type="radio" id="family" name="group" value="13">
+      <label for="family">家庭亲子游</label><br>
+      <input type="radio" id="middle_aged" name="group" value="14">
+      <label for="middle_aged">中年休闲游</label><br>
+      <input type="radio" id="senior" name="group" value="15">
+      <label for="senior">银发族 / 退休人士</label><br>
+
+      <h2>2. 旅行动机分析（您此行最主要的目的是什么？）<small>（可多选）</small></h2>
+      <input type="checkbox" id="relax" name="motivation" value="21">
+      <label for="relax">放松身心，享受度假</label><br>
+      <input type="checkbox" id="adventure" name="motivation" value="22">
+      <label for="adventure">探索冒险，寻求刺激</label><br>
+      <input type="checkbox" id="culture" name="motivation" value="23">
+      <label for="culture">感受文化，学习历史</label><br>
+      <input type="checkbox" id="food" name="motivation" value="24">
+      <label for="food">品尝美食，体验生活</label><br>
+      <input type="checkbox" id="nature" name="motivation" value="25">
+      <label for="nature">亲近自然，观赏风光</label><br>
+      <input type="checkbox" id="shopping" name="motivation" value="26">
+      <label for="shopping">购物狂欢，都市娱乐</label><br>
+
+      <h2>3. 时间规划（您计划的旅行时长是？）</h2>
+      <input type="radio" id="weekend" name="duration" value="31">
+      <label for="weekend">短途周末（1-3天）</label><br>
+      <input type="radio" id="short_holiday" name="duration" value="32">
+      <label for="short_holiday">短期假期（3-7天）</label><br>
+      <input type="radio" id="medium_trip" name="duration" value="33">
+      <label for="medium_trip">中长期旅行（1-4周）</label><br>
+      <input type="radio" id="long_trip" name="duration" value="34">
+      <label for="long_trip">深度漫游（1个月以上）</label><br>
+
+      <h2>4. 目的地偏好（您偏爱哪类环境？）<small>（可多选）</small></h2>
+      <input type="checkbox" id="beach" name="environment" value="41">
+      <label for="beach">阳光沙滩、海滨城市</label><br>
+      <input type="checkbox" id="nature_scenery" name="environment" value="42">
+      <label for="nature_scenery">山川湖海、自然奇观</label><br>
+      <input type="checkbox" id="historical" name="environment" value="43">
+      <label for="historical">历史古迹、文化名城</label><br>
+      <input type="checkbox" id="modern_city" name="environment" value="44">
+      <label for="modern_city">现代都市、繁华地带</label><br>
+      <input type="checkbox" id="countryside" name="environment" value="45">
+      <label for="countryside">宁静乡村、田园风光</label><br>
+
+      <h2>5. 旅行类型偏好（您喜欢哪种旅行方式？）</h2>
+      <input type="radio" id="free_travel" name="travel_type" value="51">
+      <label for="free_travel">自由行，随心所欲</label><br>
+      <input type="radio" id="group_tour" name="travel_type" value="52">
+      <label for="group_tour">跟团游，省心省力</label><br>
+      <input type="radio" id="self_drive" name="travel_type" value="53">
+      <label for="self_drive">自驾游，自由驰骋</label><br>
+      <input type="radio" id="private_tour" name="travel_type" value="54">
+      <label for="private_tour">定制小团，私密专属</label><br>
+
+      <h2>6. 交通方式选择（您首选的交通工具是？）</h2>
+      <input type="radio" id="plane" name="transport" value="61">
+      <label for="plane">飞机</label><br>
+      <input type="radio" id="train" name="transport" value="62">
+      <label for="train">高铁 / 火车</label><br>
+      <input type="radio" id="car" name="transport" value="63">
+      <label for="car">自驾车</label><br>
+      <input type="radio" id="bus" name="transport" value="64">
+      <label for="bus">长途巴士 / 公共交通</label><br>
+
+      <h2>7. 预算范围（您的人均旅行预算是？）</h2>
+      <input type="radio" id="economy" name="budget" value="71">
+      <label for="economy">经济型（精打细算）</label><br>
+      <input type="radio" id="standard" name="budget" value="72">
+      <label for="standard">标准型（性价比之选）</label><br>
+      <input type="radio" id="comfort" name="budget" value="73">
+      <label for="comfort">舒适型（品质享受）</label><br>
+      <input type="radio" id="luxury" name="budget" value="74">
+      <label for="luxury">奢华型（顶级体验）</label><br>
+
+      <br>
+      <button type="button" onclick="getFormValues()">Submit</button>
+    </form>
+    
+  </main>
+
+  <footer>
+    <p>&copy; 2025 我的名字. 保留所有权利。</p>
+  </footer>
+</body>
+</html>
+
+
+<script>
+
+
+  function getFormValues() {
+  
+  
+    var form = document.getElementById('myForm');
+  
+  
+    var formData = new FormData(form);
+  
+  
+    for (var value of formData.values()) {
+  
+  
+      console.log(value);
+  
+  
+    }
+  
+  
+  }
+  
+  
+  </script>
