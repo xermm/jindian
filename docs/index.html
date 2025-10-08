@@ -163,6 +163,14 @@
   // 处理成功响应
   async function handleSuccessResponse(response) {
       alert('提交成功！推荐结果已生成，请查看：' + JSON.stringify(response));
+
+      //保存uuid
+      const clientId = response.clientId;
+      sessionStorage.setItem("key", "value");
+      console.log('保存的clientId:', clientId);
+
+      //跳到结果页
+      window.location.href = 'result.html';
   }
 
   // 处理错误
@@ -175,6 +183,9 @@
 
    // 表单提交处理函数
   async function handleFormSubmit(event) {
+
+      
+
       // 阻止表单默认提交行为
       event.preventDefault();
       
