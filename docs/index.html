@@ -145,7 +145,7 @@
 
   // 发送数据到后端
   async function submitToBackend(formData) {
-      const response = await fetch('ip', {
+      const response = await fetch(ip, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
