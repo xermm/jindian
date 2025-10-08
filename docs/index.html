@@ -117,13 +117,14 @@
       document.body.appendChild(loadingElement);
   }
 
-  // 隐藏加载状态
-  function hideLoadingState() {
+
+    // 隐藏加载状态
+    function hideLoadingState() {
       const loadingElement = document.getElementById('loading');
       if (loadingElement) {
           document.body.removeChild(loadingElement);
       }
-  }
+    }
 
   // 收集表单数据
   function collectFormData() {
@@ -162,13 +163,16 @@
 
   // 处理成功响应
   async function handleSuccessResponse(response) {
-      alert('提交成功！推荐结果已生成，请查看：' + JSON.stringify(response));
+      
+      
 
       //保存uuid
       const clientId = response.clientId;
       sessionStorage.setItem("key", "value");
       console.log('保存的clientId:', clientId);
 
+
+      alert('提交成功！推荐结果已生成，请查看：' + JSON.stringify(response));
       //跳到结果页
       window.location.href = 'result.html';
   }
